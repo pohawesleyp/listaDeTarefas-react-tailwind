@@ -27,6 +27,26 @@ function App() {
         "Estudar TS para se melhorar o desenvolvimento dos meus projetos",
       isCompleted: false,
     },
+    {
+      id: 4,
+      title: "Estudar Java",
+      description:
+        "Estudar Python para conseguir se aprofundar em análise de dados, ciência de dados, IA, automação, back-end web",
+      isCompleted: false,
+    },
+    {
+      id: 5,
+      title: "Estudar Inglês",
+      description: "Estudar Inglês para se melhorar minhas chances de carreira",
+      isCompleted: false,
+    },
+    {
+      id: 6,
+      title: "Estudar Matemática",
+      description:
+        "Estudar Matemática para me aprofundar melhor em Análise de Dados.",
+      isCompleted: false,
+    },
   ]);
 
   function onTaskClick(taskId) {
@@ -46,7 +66,7 @@ function App() {
 
   function onAddTaskSubmit(title, description) {
     const newTask = {
-      id: v4,
+      id: v4(),
       title:
         title /* eu podia ter colocado apenas title, sem os :tile, pois o paramentro recebe o "mesmo valor"*/,
       description: description,
@@ -56,7 +76,7 @@ function App() {
   }
 
   return (
-    <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
+    <div className="w-screen min-h-screen bg-slate-500 flex justify-center p-6">
       <div className="w-[500px] space-y-4">
         <h1 className="text-3xl text-slate-100 front-bold text-center">
           Gerenciador de Tarefas
