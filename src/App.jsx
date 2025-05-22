@@ -1,53 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Tasks from "./components/Tasks";
 import AddTasks from "./components/AddTasks";
 import { v4 } from "uuid";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "Estudar React",
-      description:
-        "Estudar React para impulsionar a jornada de se tornar um desenvolvedor full stack",
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      title: "Estudar Tailwind Css",
-      description:
-        "Estudar Tailwind para tornar minha estilização mais dinamica",
-      isCompleted: false,
-    },
-    {
-      id: 3,
-      title: "Estudar TypeScript",
-      description:
-        "Estudar TS para se melhorar o desenvolvimento dos meus projetos",
-      isCompleted: false,
-    },
-    {
-      id: 4,
-      title: "Estudar Java",
-      description:
-        "Estudar Python para conseguir se aprofundar em análise de dados, ciência de dados, IA, automação, back-end web",
-      isCompleted: false,
-    },
-    {
-      id: 5,
-      title: "Estudar Inglês",
-      description: "Estudar Inglês para se melhorar minhas chances de carreira",
-      isCompleted: false,
-    },
-    {
-      id: 6,
-      title: "Estudar Matemática",
-      description:
-        "Estudar Matemática para me aprofundar melhor em Análise de Dados.",
-      isCompleted: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  // useEffect(() => {
+  //   async function fetchTasks() {
+  //     const response = await fetch(
+  //       "https://jsonplaceholder.typicode.com/todos?_limit=10",
+  //       {
+  //         method: "GET",
+  //       }
+  //     );
+  //     const data = await response.json();
+  //     setTasks(data);
+  //   }
+  //   fetchTasks();
+  // }, []);   // EXEMPLO DE COMO USAR API PARA PEGAR TAREFAS
 
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
