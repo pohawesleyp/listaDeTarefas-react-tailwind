@@ -194,7 +194,6 @@
     "resolve": "^1.22.10",
     "resolve-from": "^4.0.0",
     "reusify": "^1.1.0",
-    "rollup": "^4.40.2",
     "router": "^2.2.0",
     "run-parallel": "^1.2.0",
     "safe-buffer": "^5.2.1",
@@ -259,6 +258,7 @@
     "@vitejs/plugin-react": "^4.4.1",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.3",
+    "rollup": "^3.29.5",
     "tailwindcss": "^3.4.17",
     "vite": "^6.3.5"
   }
